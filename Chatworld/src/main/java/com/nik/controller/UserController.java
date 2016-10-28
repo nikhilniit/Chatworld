@@ -1,5 +1,7 @@
 package com.nik.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,4 +20,10 @@ UsersDao usersDao;
 	{
 		usersDao.registerUser(user);
 	}
+@RequestMapping(value = "/getUsers", method = RequestMethod.GET, headers = "Accept=application/json")  
+public List<Users> getUsers()
+{
+	 List<Users> users=usersDao.listUsers();
+	return users;
+}
 }
