@@ -1,0 +1,33 @@
+<div>
+    <hr>
+    
+    <h2>All Blogs</h2>
+    <span class="clearfix"></span>
+    </hr>
+    <hr>
+    </hr>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+      <th>blog id</th>
+        <th>Title</th>
+        <th>Description</th>
+        
+          <th>category</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="blog in blogs">
+      <td>{{blog.blog_id}}</td>
+        <td>{{blog.title}}</td>
+        <td>{{blog.description}}</td>
+        <td>{{blog.category}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm "   data-target="#editblog" ng-click="editBlog(blog)">Edit</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm "  data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td>
+      </tr>
+       </tbody>
+  </table>
+ 
+    </div>
