@@ -12,6 +12,14 @@ public class Users {
 private String name;
 private String password;
 private String mobile;
+private String role;
+
+	public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
+}
 	public int getId() {
 	return id;
 }
