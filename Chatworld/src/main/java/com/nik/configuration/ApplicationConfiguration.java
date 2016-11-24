@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.nik.model.Blog;
+import com.nik.model.Jobs;
 import com.nik.model.Users;
 
 
@@ -40,7 +42,7 @@ public class ApplicationConfiguration {
 		  Properties properties=new Properties();
 		  properties.setProperty("hibernate.show_sql", "true");
 			properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-			properties.setProperty("hibernate.hbm2ddl.auto", "create");
+			properties.setProperty("hibernate.hbm2ddl.auto", "update");
 			return properties;
 				  
 	 }
@@ -51,7 +53,8 @@ public class ApplicationConfiguration {
 		LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(dataSource);
 		localSessionFactoryBuilder.addProperties(getHibernateProperties());
 		localSessionFactoryBuilder.addAnnotatedClass(Users.class);
-		
+		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	@Autowired
