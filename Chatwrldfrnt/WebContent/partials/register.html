@@ -1,0 +1,15 @@
+<div>
+	<form>
+		name:<input type="text" name="email" ng-model="name">
+		<span  ng-show="registerForm.email.$error.required" style="color:red; font-family: cursive; font-size: small;">*emailid required</span>
+       <span  ng-show="registerForm.email.$error.email" style="color:red; font-family: cursive; font-size: small;">not an email</span>
+      <br>
+		 Password:<input
+			type="password" name="password" ng-model="password"> 
+			Mobile:<input
+			type="number" name="mobile" ng-model="mobile">
+		<input type = "file" file-model = "myFile"/>
+      <button  ng-click="register()">Register</button>
+	</form>
+
+</div>

@@ -13,7 +13,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.nik.model.Blog;
+import com.nik.model.Forum;
+import com.nik.model.Jobs;
 import com.nik.model.Users;
 
 
@@ -40,7 +44,7 @@ public class ApplicationConfiguration {
 		  Properties properties=new Properties();
 		  properties.setProperty("hibernate.show_sql", "true");
 			properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-			properties.setProperty("hibernate.hbm2ddl.auto", "create");
+			properties.setProperty("hibernate.hbm2ddl.auto", "update");
 			return properties;
 				  
 	 }
@@ -51,7 +55,9 @@ public class ApplicationConfiguration {
 		LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(dataSource);
 		localSessionFactoryBuilder.addProperties(getHibernateProperties());
 		localSessionFactoryBuilder.addAnnotatedClass(Users.class);
-		
+		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	@Autowired
@@ -61,6 +67,12 @@ public class ApplicationConfiguration {
 		HibernateTransactionManager hibernateTransactionManager=new HibernateTransactionManager(sessionFactory);
 		return hibernateTransactionManager;
 		
+	}
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+	    CommonsMultipartResolver resolver=new CommonsMultipartResolver();
+	    resolver.setDefaultEncoding("utf-8");
+	    return resolver;
 	}
 
 }
