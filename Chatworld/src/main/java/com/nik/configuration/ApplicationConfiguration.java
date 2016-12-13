@@ -17,6 +17,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.nik.model.Blog;
 import com.nik.model.Forum;
+import com.nik.model.Friend;
 import com.nik.model.Jobs;
 import com.nik.model.Users;
 
@@ -58,6 +59,7 @@ public class ApplicationConfiguration {
 		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	@Autowired

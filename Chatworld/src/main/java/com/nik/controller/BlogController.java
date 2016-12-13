@@ -47,4 +47,8 @@ public List<Blog> viewMyBlogs(@PathVariable("postedby") String postedby)
 	return blogDao.viewMyBlogs(postedby);
 	
 }
+/*public void updateBlogs(@PathVariable int id)
+{
+	blogDao.updateBlogs(id);
+}*/
 }

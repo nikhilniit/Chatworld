@@ -702,7 +702,7 @@ chatworld.controller('registerController', ['$scope', 'fileUpload', function($sc
 								title:$scope.allblogslike.title,
 								description:$scope.allblogslike.description,
 								postedby:$scope.allblogslike.postedby,
-								status:$scope.allblogs.status,
+								status:$scope.allblogslike.status,
 								likes:$rootScope.likes
 									}
 								console.log("data in like:"+like);
@@ -725,4 +725,19 @@ chatworld.controller('registerController', ['$scope', 'fileUpload', function($sc
 							    	console.log("data:"+response.data);
 							    
 							    });}
+					
+					$scope.addfriend=function(user)
+					{
+						console.log("in addfriend");
+						$scope.friend=user;
+						
+						console.log("friendname:"+$scope.friend.name);
+						console.log("username:"+$rootScope.uname);
+						var fr=
+							{
+								name:$rootScope.uname,
+								friendname:$scope.friend.name
+							}
+						$http.post("http://localhost:8081/Chatworld/addFriend/",fr);
+					}
 						});

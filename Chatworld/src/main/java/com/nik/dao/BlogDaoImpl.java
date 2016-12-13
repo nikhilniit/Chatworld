@@ -45,4 +45,8 @@ SessionFactory sessionFactory;
 		return list;
 		}	
 
+	/*public void updateBlogs(int id)
+	{
+		sessionFactory.getCurrentSession().update(blog);
+	}*/
 }

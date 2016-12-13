@@ -11,6 +11,6 @@ List<Blog> viewBlogs();
 
 void deleteBlog(Blog blog);
 void updateBlog(Blog blog);
-
+/*void updateBlogs(Blog blog);*/
 List<Blog> viewMyBlogs(String postedby);
 }
